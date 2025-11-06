@@ -12,6 +12,9 @@
 # Create f(x) add, multiply, divide
 # ..instead of return[a[0] + b[0].....], I just declare x and y with the value, return to x and y
 
+A = [-3, 6]
+R = [1, 1]
+
 def add(a, b):
     x = a[0] + b[0]
     y = a[1] + b[1]
@@ -29,30 +32,74 @@ def divide(a, b):
 
 # This part fo looping 3 pusingan(cycle)
 # Still using rules of cycle tadi, cuma declare as 'survive'
-# If it too big --> point tak engraved, tapi kalau robot survive semua cycle --> point di engraved kan
+# If it too big --> point tak engraved, tapi kalau survive semua cycle --> point di engraved kan
 
-def survive(point, cycles=3, threshold=1000):
-    R= [0, 0]
-    for i in range(cycles):
+def survive(R, A):
+    print(f"\nStart point R = {R}")
+    for cycle in range(3):
         R = multiply(R, R)
+        print(f" Lepas  multiply: {R}")
+
         R = divide(R, [10, 10])
-        R = add(R, point)
+        print(f" Lepas  divide: {R}")
+
+        R = add(R, A)
+        print(f" Lepas  add: {R}")
+
+        if abs(R[0]) > 50000 or abs(R[1]) > 50000:
+            print(f" Broke limit cycle  {cycle+1}! R = {R}")
+            return False
+    print(f" Survived semua cycle! Final R = {R}")
+    return True
+
+survive([1, 1], A)
+'''
+engraved = 0
+for y in range(10):
+    for x in range(10):
+        R = [x, y]
+        if survive(R, A):
+            engraved += 1
+
+print("Total engraved points:", engraved)
+'''
+
+# ----------------------------------------------------------------------------------------------
+# These all just try and error things -_-, penad ah ceni
+'''
         if R[0] > threshold or R[0] < -threshold or R[1] > threshold or R[1] < -threshold:
             return False, R, i+1
     return True, R, cycles
-
-A = [1, 1]
-N = 5
-step = 2
+'''
+'''
+A = [3, -6]  #[35300, -64910] # starting point
+N = 21 #101 # using 101 x 101 grid based dari quest 
+step = 1 #10 # distance point ke point, based on [1000 / (101 - 1)]
+total = 0
 
 for row in range(N):
     y_axis = A[1] + row*step
     line = ""
     for col in range(N):
         x_axis = A[0] + col*step
-        ok, final, _ = survive([x_axis, y_axis], cycles=3, threshold=20)
+        ok, final, _ = survive([x_axis, y_axis], cycles=20, threshold=1000)
         if ok:
             line += "x"
+            total += 1
         else:
             line += "."
     print(line)
+print("Total engraved points:", total) #based on "ok"
+
+grid_size = 10
+
+for y in range(grid_size):
+    row = ""
+    for x in range(grid_size):
+        R = [x, y]
+        if survive(R, A):
+            row += "x"
+        else:
+            row += "."
+    print(row)
+'''
