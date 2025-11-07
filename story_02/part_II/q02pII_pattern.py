@@ -28,6 +28,10 @@ def divide(x, y):
     return [c1 // c2 if c1>= 0 else -((-c1) // c2) for c1, c2 in zip(x, y)]
 
 count = 0
+xs = [] # part for draw
+ys = [] # part for draw
+
+grid = [['.' for _ in range(101)] for _ in range(101)]
 
 for x_axis, y_axis in itertools.product(range(101), range(101)):
     P = [A[0] + 10 * x_axis, A[1] + 10 * y_axis]
@@ -44,8 +48,21 @@ for x_axis, y_axis in itertools.product(range(101), range(101)):
 
     if valid:
         count += 1
+        grid[y_axis][x_axis] = 'x' # yang 'x' is ungraved success
+        xs.append(P[0])
+        ys.append(P[1])
 
 print("Total engraved:",  count)
+
+for row in grid:
+    print("".join(row))
+
+
+# This part for drawing (yeah first time do this so use Chat okay)
+
+with open("engraved_points.txt", "w")as f:
+    for x, y in zip(xs, ys):
+        f.write(F"{x},{y}\n")
 
 # ----------------------------------------------------------------------------------------------
 
