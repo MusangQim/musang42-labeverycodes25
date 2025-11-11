@@ -9,9 +9,10 @@
 # -----------------------PART I------------------------------------------------------------
 '''
 so for this quest,
-Aa = sword fight Bb = archery Cc = magic
+(Aa = sword fight) (Bb = archery) (Cc = magic)
 uppercase A B C = mentors
 lowercase a b c = novices
+tapi ni utk category A je dulu , sword fight
 '''
 # ex_notes = "ABabACacBCbca"
 notes = "ABCaCbBcAbBABCCCbbCCbAcCBAbaAcBBCacBCcAAAcaaABCAcaBBBcaCACBaaABAbbacCAcCAccaAbBCAAaBCCBACcacBcCCaBAB"
