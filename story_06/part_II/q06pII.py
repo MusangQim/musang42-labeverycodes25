@@ -29,4 +29,4 @@ for cat in category:
         elif roles == cat.lower():
             total_pair += mentor_count
 
-print("Total", total_pair)
+print("Total novice-mentor pairs untuk semua categories:", total_pair)
