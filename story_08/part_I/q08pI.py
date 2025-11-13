@@ -8,8 +8,7 @@
 ############################################
 #------------------------PART I---------------------------------------
 '''
-quest ni macam menjahit, but this using 8 pins/nails
-setiap nail ade number, 1 -> 8 ikut clockwise
+quest ni macam menjahit, 8 nails utk contoh, guna 32
 setiap benang yang lalu centre dikira 1 , berikutan kepada list number
 '''
 def pass_tengah(sequence, n):
