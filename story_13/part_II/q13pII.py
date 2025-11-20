@@ -22,12 +22,17 @@ notes = clean_notes.splitlines()
 roda = [1]
 put_right = True
 
+"""
 for start_num, end_num in notes:
-
     if start_num <= end_num:
         expand_num = list(range(start_num, end_num + 1))
     else:
         expand_num = list(range(start_num, end_num - 1, -1))
+"""
+
+for n in notes:
+    value = int(n)
+    expand_num = [value]
 
     if put_right:
         roda += expand_num
