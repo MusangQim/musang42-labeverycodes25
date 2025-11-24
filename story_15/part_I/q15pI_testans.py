@@ -10,7 +10,8 @@
 
 from collections import deque
 
-raw_notes = "L6,L3,L6,R3,L6,L3,L3,R6,L6,R6,L6,L6,R3,L3,L3,R3,R3,L6,L6,L3"
+# raw_notes = "L6,L3,L6,R3,L6,L3,L3,R6,L6,R6,L6,L6,R3,L3,L3,R3,R3,L6,L6,L3"
+raw_notes = "L6,L3,L3,R3,L3,L3,R6,L6,L6,R3,L6,L3,R3,L3,R6,L3,L6,R6,L3,R3,L3,R6,L3,L6,R3,L6,R6,L6,R3,L6,L3,R3,L6,R3,L3,R6,L3,L3,R3,L3,R6,L3,R6,L3,R6,L6,L6,R6,L6,R3,R6,L6,L6,L3,R3,R6,L3,R3,L3,R6"
 notes = [(item[0], int(item[1:])) for item in raw_notes.split(",")]
 
 
